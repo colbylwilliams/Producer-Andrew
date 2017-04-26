@@ -1,0 +1,29 @@
+﻿{
+  "disabled": false,
+  "bindings": [
+    {
+      "name": "contentMessage",
+      "type": "queueTrigger",
+      "queueName": "message-queue-avcontent",
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    },
+    {
+      "name": "record",
+      "type": "mobileTable",
+      "tableName": "AvContent",
+      "id": "{contentId}",
+      "connection": "AzureAppServiceMobileAppUri",
+      "direction": "in"
+    },
+    {
+      "name": "notification",
+      "type": "notificationHub",
+      "tagExpression": "",
+      "hubName": "[Your Hub Name]", // APP-SERVICE (add your hub name here - not a variable in appsettings.json)
+      "connection": "AzureNotificationHubConnection",
+      "platform": "apns",
+      "direction": "out"
+    }
+  ]
+}

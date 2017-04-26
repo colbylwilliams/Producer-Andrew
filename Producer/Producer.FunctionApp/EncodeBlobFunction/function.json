@@ -1,0 +1,19 @@
+﻿{
+  "bindings": [
+    {
+      "type": "blobTrigger",
+      "name": "inputBlob",
+      "direction": "in",
+      "path": "uploads-avcontent/{fileName}.{fileExtension}",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "type": "queue",
+      "name": "storageUriQueueItem",
+      "queueName": "message-queue-avcontent",
+      "direction": "out",
+      "connection": "AzureWebJobsStorage"
+    }
+  ],
+  "disabled": false
+}
